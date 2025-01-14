@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Suivi d'Objets Vidéo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .upload-form {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #ccc;
+            border-radius: 5px;
+        }
+        .video-container {
+            margin-top: 20px;
+        }
+        .video-feed {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suivi d'Objets Vidéo</h1>
+    
+    <div class="upload-form">
+        <h2>Télécharger une Vidéo</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="video/*">
+            <input type="submit" value="Télécharger">
+        </form>
+    </div>
+
+    <div class="video-container">
+        <h2>Flux Vidéo en Direct</h2>
+        <img src="{{ url_for('video_feed') }}" alt="Flux Vidéo" class="video-feed">
+    </div>
+</body>
+</html>
